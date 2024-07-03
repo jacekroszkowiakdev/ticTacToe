@@ -34,3 +34,84 @@ body {
 .box:hover {
     background: #e6e6e6;
 }
+
+@keyframes shake-horizontal {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(5px);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.fa-circle-o,
+.fa-times {
+    animation: shake-horizontal 50ms;
+}
+
+@keyframes shake-skew-x {
+    0% {
+        transform: skewX(-20deg);
+    }
+    5% {
+        transform: skewX(20deg);
+    }
+    10% {
+        transform: skewX(-20deg);
+    }
+    15% {
+        transform: skewX(20deg);
+    }
+    20% {
+        transform: skewX(0deg);
+    }
+    100% {
+        transform: skewX(0deg);
+    }
+}
+
+.fa-circle-o:active,
+.fa-times:active {
+    animation: shake-skew-x 80ms;
+    background-color: rgb(255, 4, 4);
+}
+
+@keyframes change-background-color {
+    from {
+        background-color: #f0f0f0;
+    }
+    to {
+        background-color: rgb(160, 160, 160);
+    }
+}
+
+.winning-field {
+    background-color: rgb(23, 180, 23);
+}
+
+.game-finished {
+    animation: change-background-color 800ms linear infinite;
+}
+
+.play-again {
+    display: flex;
+    height: 50px;
+    width: 100px;
+    font-size: 1rem;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
