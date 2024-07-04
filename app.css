@@ -11,6 +11,14 @@ body {
     justify-content: center;
 }
 
+ul {
+    display: inline-block;
+}
+
+li {
+    display: inline-block;
+}
+
 .board {
     width: 606px;
     background: #f0f0f0;
