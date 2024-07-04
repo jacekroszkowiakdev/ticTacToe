@@ -2,6 +2,7 @@ const gameBoard = document.querySelector(".board");
 const playAgainButton = document.querySelector(".hidden");
 const PLAYER_1 = "fa-circle-o";
 const PLAYER_2 = "fa-times";
+let movesCount = 0;
 let round = 1;
 
 const gameMatrix = [
@@ -27,7 +28,6 @@ boxes.forEach((box) => box.addEventListener("click", select));
 playAgainButton.addEventListener("click", restartGame);
 
 function select(evt) {
-    // const { row, column } = evt.target.dataset;
     const row = parseInt(evt.target.dataset.row, 10);
     const column = parseInt(evt.target.dataset.column, 10);
     const turn = round % 2 === 0 ? PLAYER_2 : PLAYER_1;
@@ -36,7 +36,9 @@ function select(evt) {
     evt.target.classList.add(turn);
     gameMatrix[row][column] = turn;
     round++;
+    movesCount++;
 
+    console.log(movesCount);
     console.log(check());
 }
 
@@ -49,7 +51,6 @@ function restartGame() {
 }
 
 function check() {
-    // const result = board.reduce((total, row) => total.concat(row));
     const result = gameMatrix.flat();
 
     let winner = null;
@@ -83,6 +84,12 @@ function check() {
         gameBoard.classList.add("game-finished");
         playAgainButton.classList.remove("hidden");
         blockBoardAfterGameFinish();
+    } else if (movesCount === 9) {
+        console.log("Draw Game");
+        gameBoard.classList.add("draw-game");
+        playAgainButton.classList.remove("hidden");
+        blockBoardAfterGameFinish();
     }
+
     return winner;
 }

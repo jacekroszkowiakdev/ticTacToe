@@ -6,6 +6,7 @@ body {
     font-family: sans-serif;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -85,33 +86,47 @@ body {
     background-color: rgb(255, 4, 4);
 }
 
-@keyframes change-background-color {
+@keyframes change-board-background-color {
     from {
         background-color: #f0f0f0;
     }
     to {
-        background-color: rgb(160, 160, 160);
+        background-color: rgb(179, 174, 174);
+    }
+}
+
+.game-finished {
+    animation: change-board-background-color 800ms linear infinite;
+}
+
+@keyframes change-winning-field-background-color {
+    from {
+        background-color: rgb(23, 180, 23);
+    }
+    to {
+        background-color: rgb(86, 238, 86);
     }
 }
 
 .winning-field {
-    background-color: rgb(23, 180, 23);
-}
-
-.game-finished {
-    animation: change-background-color 800ms linear infinite;
+    animation: change-winning-field-background-color 800ms ease-out infinite;
 }
 
 .play-again {
     display: flex;
     height: 50px;
-    width: 100px;
+    width: 150px;
     font-size: 1rem;
     font-weight: bold;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .hidden {
     display: none;
+}
+
+.draw-game {
+    background-color: rgb(209, 209, 209);
 }
