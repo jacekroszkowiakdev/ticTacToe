@@ -15,16 +15,20 @@
         />
         <script defer src="app.js"></script>
     </head>
+
     <header class="main-header">
-        <nav class="game-score">
-            <ul class="game-score__items">
-                <li>PLAYER 1:</li>
-                <div class="game-score_player1"></div>
-                <div class="game-score_player2"></div>
-                <li>:PLAYER 2</li>
-            </ul>
-        </nav>
+        <div class="game-score">
+            <div class="game-score_player">
+                <h2>PLAYER 1:</h2>
+                <p class="game-score_display_player1">0</p>
+            </div>
+            <div class="game-score_player">
+                <p class="game-score_display_player2">0</p>
+                <h2>:PLAYER 2</h2>
+            </div>
+        </div>
     </header>
+
     <body>
         <button class="play-again hidden">PLAY AGAIN</button>
         <div class="board">
